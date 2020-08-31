@@ -8,9 +8,12 @@ const initialState = {
   password: "",
 };
 
-type Action = { type: "LOGIN_USER"; payload: string };
+type Action = { type: "LOGIN_USER"; payload: object };
 
-export const reducer = (state: userState, action: Action) => {
+export const userReducer = (
+  state: userState = initialState,
+  action: Action
+) => {
   switch (action.type) {
     case "LOGIN_USER":
       return {
