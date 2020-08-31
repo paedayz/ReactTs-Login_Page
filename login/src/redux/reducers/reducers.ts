@@ -8,7 +8,7 @@ const initialState = {
   password: "",
 };
 
-type Action = { type: "LOGIN_USER"; payload: object };
+type Action = { type: "LOGIN_USER"; payload: string };
 
 export const userReducer = (
   state: userState = initialState,
@@ -18,7 +18,7 @@ export const userReducer = (
     case "LOGIN_USER":
       return {
         ...state,
-        email: action.payload.email,
+        email: action.payload,
       };
     default:
       return state;
