@@ -1,11 +1,9 @@
 export interface userState {
-  email: string;
-  password: string;
+  user: object;
 }
 
 const initialState = {
-  email: "",
-  password: "",
+  user: [],
 };
 
 type Action = { type: "LOGIN_USER"; payload: string };
