@@ -1,9 +1,9 @@
 export interface userState {
-  user: object;
+  userData: object;
 }
 
 const initialState = {
-  user: [],
+  userData: [],
 };
 
 type Action = { type: "LOGIN_USER"; payload: string };
@@ -16,7 +16,7 @@ export const userReducer = (
     case "LOGIN_USER":
       return {
         ...state,
-        email: action.payload,
+        userData: action.payload,
       };
     default:
       return state;
