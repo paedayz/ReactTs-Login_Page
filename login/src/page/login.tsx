@@ -1,9 +1,15 @@
 import React, { useState } from "react";
 import "../App.css";
 
+// Redux
+import { useDispatch } from "react-redux";
+import { login } from "../redux/actions/actions";
+
 function Login() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+
+  const dispatch = useDispatch();
 
   const handleOnChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     if (event.target.name == "username") {
@@ -11,6 +17,11 @@ function Login() {
     } else {
       setPassword(event.target.value);
     }
+  };
+
+  const handleButtonClick = () => {
+    const userData = { username: username, password: password };
+    dispatch(login(userData));
   };
 
   return (
@@ -33,7 +44,7 @@ function Login() {
         ></input>
       </form>
 
-      <button>login</button>
+      <button onClick={handleButtonClick}>login</button>
     </div>
   );
 }
