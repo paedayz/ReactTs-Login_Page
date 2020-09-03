@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useHistory } from "react-router-dom";
 import "../App.css";
 
 // Redux
@@ -8,6 +9,8 @@ import { login } from "../redux/actions/userActions";
 function Login() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+
+  let history = useHistory();
 
   const dispatch = useDispatch();
 
@@ -22,6 +25,7 @@ function Login() {
   const handleButtonClick = () => {
     const userData = { username: username, password: password };
     dispatch(login(userData));
+    history.push("/homepage");
   };
 
   return (
